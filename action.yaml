@@ -56,6 +56,7 @@ runs:
         source "$HOME/exports"
         echo "HOME: $HOME"
         ls -l $HOME
+        touch $HOME/.bashrc
         echo "source $HOME/exports" >> $HOME/.bashrc
         echo "$PATH" >> "$GITHUB_PATH"
         echo "$PATH" >> "$GITEA_PATH"
