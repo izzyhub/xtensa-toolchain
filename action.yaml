@@ -55,6 +55,7 @@ runs:
         "$HOME/.cargo/bin/espup" install -l debug --export-file $HOME/exports --targets ${{ inputs.buildtargets }} $version
         source "$HOME/exports"
         echo "HOME: $HOME"
+        ls -l $HOME
         echo "source $HOME/exports" >> $HOME/.bashrc
         echo "$PATH" >> "$GITHUB_PATH"
         echo "$PATH" >> "$GITEA_PATH"
