@@ -54,7 +54,7 @@ runs:
         [[ "${{ inputs.version }}" != latest ]] && version="--toolchain-version ${{ inputs.version }}" || version=""
         "$HOME/.cargo/bin/espup" install -l debug --export-file $HOME/exports --targets ${{ inputs.buildtargets }} $version
         source "$HOME/exports"
-        echo "source "$HOME/exports" >> $HOME/.bashrc
+        echo "source $HOME/exports" >> $HOME/.bashrc
         echo "$PATH" >> "$GITHUB_PATH"
         echo "LIBCLANG_PATH=${LIBCLANG_PATH}" >> "$GITHUB_ENV"
         [[ "${{ inputs.default }}" = true ]] && rustup default esp || true
