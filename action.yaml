@@ -54,8 +54,11 @@ runs:
         [[ "${{ inputs.version }}" != latest ]] && version="--toolchain-version ${{ inputs.version }}" || version=""
         "$HOME/.cargo/bin/espup" install -l debug --export-file $HOME/exports --targets ${{ inputs.buildtargets }} $version
         source "$HOME/exports"
+        echo "HOME: $HOME"
         echo "source $HOME/exports" >> $HOME/.bashrc
         echo "$PATH" >> "$GITHUB_PATH"
+        echo "$PATH" >> "$GITEA_PATH"
         echo "LIBCLANG_PATH=${LIBCLANG_PATH}" >> "$GITHUB_ENV"
+        echo "LIBCLANG_PATH=${LIBCLANG_PATH}" >> "$GITEA_ENV"
         [[ "${{ inputs.default }}" = true ]] && rustup default esp || true
         [[ "${{ inputs.override }}" = true ]] && rustup override unset || true
